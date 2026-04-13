@@ -20,7 +20,7 @@ public class ArrayReaderImpl implements ArrayReader {
 
     @Override
     public List<String> readLinesFromFile(String filePath) throws CustomArrayException {
-        if (filePath == null || filePath.trim().isEmpty()) {
+        if (filePath == null || filePath.strip().isBlank()) {
             logger.log(Level.ERROR, "Provided file path is null or empty");
             throw new CustomArrayException("File path cannot be null or empty");
         }
@@ -33,7 +33,7 @@ public class ArrayReaderImpl implements ArrayReader {
 
         try (Stream<String> lines = Files.lines(path)) {
             List<String> result = lines
-                    .filter(line -> !line.trim().isEmpty())
+                    .filter(line -> !line.strip().isBlank())
                     .collect(Collectors.toList());
 
             logger.log(Level.INFO, "Successfully read {} non-empty lines from file: {}", result.size(), filePath);
