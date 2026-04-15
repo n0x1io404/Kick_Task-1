@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.Arrays;
 
 public class CustomEntityIntArray {
-    private int[] data;
     private static final Logger logger = LogManager.getLogger("LogFile");
+    private int[] data;
 
     public CustomEntityIntArray(int size) throws CustomArrayException{
         if (size <= 0) { throw new CustomArrayException("Invalid size"); }
