@@ -22,7 +22,7 @@ public class CustomEntityIntArray {
         if (incomingData == null) { throw new CustomArrayException("Array reference is null"); }
         if (incomingData.length == 0) { throw new CustomArrayException("Array is empty (length 0)"); }
 
-        this.data = data.clone();
+        this.data = incomingData.clone();
         logger.log(Level.INFO,"Entity of CustomEntityIntArray was created by incoming int-array.");
     }
 
