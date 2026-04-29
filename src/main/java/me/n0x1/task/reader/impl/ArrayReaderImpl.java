@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 public class ArrayReaderImpl implements ArrayReader {
 
-    private static final Logger logger = LogManager.getLogger("LogFile");
+    private static final Logger logger = LogManager.getLogger(ArrayReaderImpl.class);
 
     @Override
     public List<String> readLinesFromFile(String filePath) throws CustomArrayException {
