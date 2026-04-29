@@ -22,10 +22,6 @@ public class EntityObserverImpl implements EntityObserver {
 
     @Override
     public void update(CustomEntityIntArray entityIntArray) {
-        if (entityIntArray == null) {
-            logger.log(Level.WARN,"Received null entityIntArray in observer update method");
-            return;
-        }
 
         long id = entityIntArray.getId();
         logger.log(Level.INFO,"Observer detected change in array ID: {}", id);
@@ -48,7 +44,7 @@ public class EntityObserverImpl implements EntityObserver {
 
         warehouse.update(id, newStats);
 
-        logger.info("Warehouse updated for array ID: {}", id);
+        logger.log(Level.INFO,"Warehouse updated for array ID: {}", id);
     }
 
 }

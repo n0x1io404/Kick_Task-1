@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArrayFactoryImpl implements ArrayFactory {
-    private static final Logger logger = LogManager.getLogger("LogFile");
+    private static final Logger logger = LogManager.getLogger(ArrayFactoryImpl.class);
 
     @Override
     public CustomEntityIntArray createArray(int size) throws CustomArrayException {
