@@ -3,29 +3,35 @@ package me.n0x1.task.factory.impl;
 import me.n0x1.task.entity.CustomEntityIntArray;
 import me.n0x1.task.exception.CustomArrayException;
 import me.n0x1.task.factory.ArrayFactory;
-import org.apache.logging.log4j.Level;
+import me.n0x1.task.util.IdGenerator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArrayFactoryImpl implements ArrayFactory {
-
     private static final Logger logger = LogManager.getLogger("LogFile");
 
     @Override
     public CustomEntityIntArray createArray(int size) throws CustomArrayException {
-        logger.log(Level.INFO, "ArrayFactoryImpl is creating a new array of size ({}).", size);
-        return new CustomEntityIntArray(size);
+        if (size <= 0) { throw new CustomArrayException("Invalid size"); }
+        var id = IdGenerator.generateId();
+
+        return new CustomEntityIntArray(id, size);
     }
 
     @Override
     public CustomEntityIntArray createArray(int... incomingData) throws CustomArrayException {
-        logger.log(Level.INFO, "ArrayFactoryImpl is creating a new array from existing varargs/array.");
-        return new CustomEntityIntArray(incomingData);
+        if (incomingData == null) { throw new CustomArrayException("Array reference is null"); }
+        if (incomingData.length == 0) { throw new CustomArrayException("Array is empty (length 0)"); }
+        var id = IdGenerator.generateId();
+
+        return new CustomEntityIntArray(id, incomingData);
     }
 
     @Override
     public CustomEntityIntArray createArray(CustomEntityIntArray entityArray) throws CustomArrayException {
-        logger.log(Level.INFO, "ArrayFactoryImpl is cloning an existing CustomEntityIntArray.");
-        return new CustomEntityIntArray(entityArray);
+        if (entityArray == null) { throw new CustomArrayException("Entity array reference is null"); }
+        var id = IdGenerator.generateId();
+
+        return new CustomEntityIntArray(id, entityArray);
     }
 }

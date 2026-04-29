@@ -21,13 +21,11 @@ public class ArrayReaderImpl implements ArrayReader {
     @Override
     public List<String> readLinesFromFile(String filePath) throws CustomArrayException {
         if (filePath == null || filePath.isBlank()) {
-            logger.log(Level.ERROR, "Provided file path is null or empty");
             throw new CustomArrayException("File path cannot be null or empty");
         }
 
         Path path = Paths.get(filePath);
         if (!Files.exists(path) || Files.isDirectory(path)) {
-            logger.log(Level.ERROR, "File does not exist or is a directory: {}", filePath);
             throw new CustomArrayException("Invalid file: " + filePath);
         }
 
@@ -36,10 +34,8 @@ public class ArrayReaderImpl implements ArrayReader {
                     .filter(line -> !line.isBlank())
                     .collect(Collectors.toList());
 
-            logger.log(Level.INFO, "Successfully read {} non-empty lines from file: {}", result.size(), filePath);
             return result;
         } catch (IOException e) {
-            logger.log(Level.ERROR, "Error reading file: {}", filePath, e);
             throw new CustomArrayException("Error reading file: " + e.getMessage());
         }
     }
