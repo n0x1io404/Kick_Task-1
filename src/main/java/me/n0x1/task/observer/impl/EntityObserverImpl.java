@@ -4,19 +4,19 @@ import me.n0x1.task.entity.CustomEntityIntArray;
 import me.n0x1.task.entity.CustomEntityIntArrayStatistics;
 import me.n0x1.task.observer.EntityObserver;
 import me.n0x1.task.service.impl.IntArrayActionImpl;
-import me.n0x1.task.warehouse.EntityIntArrayWarehouse; // Добавил правильный импорт склада
+import me.n0x1.task.warehouse.EntityIntArrayWarehouse;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
-import java.util.OptionalDouble; // Добавил недостающий импорт
+import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
 
 public class EntityObserverImpl implements EntityObserver {
 
-    private static final Logger logger = LogManager.getLogger(EntityObserverImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     private final IntArrayActionImpl service = new IntArrayActionImpl();
 

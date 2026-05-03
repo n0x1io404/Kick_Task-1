@@ -12,7 +12,7 @@ import java.util.OptionalLong;
 
 public class IntArrayActionImpl implements IntArrayAction {
 
-    private static final Logger logger = LogManager.getLogger(IntArrayActionImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public OptionalInt findMin(int[] intArray) {

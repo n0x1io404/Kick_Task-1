@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class CustomEntityIntArray implements Observable {
 
-    private static final Logger logger = LogManager.getLogger(CustomEntityIntArray.class);
+    private static final Logger logger = LogManager.getLogger();
 
     private final long id;
     private int[] data;

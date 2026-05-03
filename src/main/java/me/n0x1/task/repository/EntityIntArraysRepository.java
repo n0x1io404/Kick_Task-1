@@ -65,7 +65,7 @@ public class EntityIntArraysRepository {
             }
         }
 
-        logger.info("Query performed. Found {} arrays.", results.size());
+        logger.log(Level.INFO,"Query performed. Found {} arrays.", results.size());
         return results;
     }
 
@@ -75,7 +75,7 @@ public class EntityIntArraysRepository {
 
         sortedList.sort(comparator);
 
-        logger.info("Arrays sorted using comparator: {}", comparator.getClass().getSimpleName());
+        logger.log(Level.INFO,"Arrays sorted using comparator: {}", comparator.getClass().getSimpleName());
         return sortedList;
     }
 }

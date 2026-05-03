@@ -16,14 +16,10 @@ import java.util.stream.Stream;
 
 public class ArrayReaderImpl implements ArrayReader {
 
-    private static final Logger logger = LogManager.getLogger(ArrayReaderImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public List<String> readLinesFromFile(String filePath) throws CustomArrayException {
-        if (filePath == null || filePath.isBlank()) {
-            throw new CustomArrayException("File path cannot be null or empty");
-        }
-
         Path path = Paths.get(filePath);
         if (!Files.exists(path) || Files.isDirectory(path)) {
             throw new CustomArrayException("Invalid file: " + filePath);
